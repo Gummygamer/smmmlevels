@@ -35,13 +35,6 @@ class SpriteItem:
         self.type = type
         self.InitializeSprite()
 
-    def ListString(self):
-        """
-        Returns a string that can be used to describe the sprite in a list
-        """
-        baseString = _('{name} (at {x}, {y})', 'name', self.name, 'x', self.objx, 'y', self.objy)
-        return baseString
-
     def __lt__(self, other):
         # Sort by objx, then objy, then sprite type
         return (self.objx * 100000 + self.objy) * 1000 + self.type < (other.objx * 100000 + other.objy) * 1000 + other.type
@@ -54,13 +47,6 @@ class SpriteItem:
         global prefs
 
         type = self.type
-
-        if type > len(Sprites): return
-
-        self.name = Sprites[type].name
-        self.setToolTip(_('<b>Sprite {type}:</b><br>{name}', 'type', self.type, 'name', self.name))
-        self.UpdateListItem()
-
 
     def setStdPos(self, x, y):
         """
