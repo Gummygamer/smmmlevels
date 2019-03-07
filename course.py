@@ -67,8 +67,7 @@ class SpriteItem:
         Sets objx and objy to x and y, and then updates the sprite's position in the scene
         """
         self.objx, self.objy = x, y
-        self.resetPos()
-
+        
 class CourseClass:
     """
     Class for a course from Super Mario Maker
