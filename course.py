@@ -129,10 +129,6 @@ class CourseClass:
             spr = SpriteItem(*sprinfo)
             self.sprites.append(spr)
 
-            spr.UpdateListItem()
-            spr.UpdateDynamicSizing()
-
-
         # Success return value
         return True
     
