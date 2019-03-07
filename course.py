@@ -1,3 +1,93 @@
+class SpriteItem:
+
+    # Default argument values are the ones the game uses
+    def __init__(self,
+        x=0, z=0, y=0,
+        w=1, h=1,
+        sprdata=DEFAULT_SPRITEDATA[:4], subsprdata=DEFAULT_SUBSPRITEDATA, sprdata2=DEFAULT_SPRITEDATA[4:],
+        type_=0, subtype=-1,
+        linkingid=-1, eff=None, costumeid=-1, subcostumeid=-1,
+        ):
+        """
+        Create a sprite with specific data
+        """
+
+        self.objx = x
+        self.objy = y
+        self.objz = z
+        self.width = w
+        self.height = h
+        self.spritedata = sprdata + sprdata2
+        self.spritedata_sub = subsprdata
+        self.type = type_
+        self.type_sub = subtype
+        self.linkingID = linkingid
+        self.effect = eff
+        self.costumeID = costumeid
+        self.costumeID_sub = subcostumeid
+
+        self.font = NumberFont
+        self.listitem = None
+        self.ChangingPos = False
+
+
+        try:
+            sname = Sprites[type_].name
+            self.name = sname
+        except:
+            self.name = 'UNKNOWN'
+
+        self.InitializeSprite()
+
+        self.setFlag(self.ItemIsMovable, not SpritesFrozen)
+        self.setFlag(self.ItemIsSelectable, not SpritesFrozen)
+
+        global DirtyOverride
+        DirtyOverride += 1
+        self.resetPos()
+        DirtyOverride -= 1
+
+    def SetType(self, type):
+        """
+        Sets the type of the sprite
+        """
+        self.type = type
+        self.InitializeSprite()
+
+    def ListString(self):
+        """
+        Returns a string that can be used to describe the sprite in a list
+        """
+        baseString = _('{name} (at {x}, {y})', 'name', self.name, 'x', self.objx, 'y', self.objy)
+        return baseString
+
+    def __lt__(self, other):
+        # Sort by objx, then objy, then sprite type
+        return (self.objx * 100000 + self.objy) * 1000 + self.type < (other.objx * 100000 + other.objy) * 1000 + other.type
+
+
+    def InitializeSprite(self):
+        """
+        Initializes sprite and creates any auxiliary objects needed
+        """
+        global prefs
+
+        type = self.type
+
+        if type > len(Sprites): return
+
+        self.name = Sprites[type].name
+        self.setToolTip(_('<b>Sprite {type}:</b><br>{name}', 'type', self.type, 'name', self.name))
+        self.UpdateListItem()
+
+
+    def setStdPos(self, x, y):
+        """
+        Sets objx and objy to x and y, and then updates the sprite's position in the scene
+        """
+        self.objx, self.objy = x, y
+        self.resetPos()
+
 class CourseClass:
     """
     Class for a course from Super Mario Maker
