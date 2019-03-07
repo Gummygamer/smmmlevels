@@ -54,6 +54,10 @@ class SpriteItem:
         """
         self.objx, self.objy = x, y
         
+    def toAIChar(self):
+        
+        return chr(self.type + 32)
+        
 class CourseClass:
     """
     Class for a course from Super Mario Maker
@@ -141,7 +145,7 @@ class CourseClass:
                 present = False
                 for spr in self.sprites:
                     if (spr.objx == i) and (spr.objy == j):
-                        aiString += spr.toAIchar()
+                        aiString += spr.toAIChar()
                         present = True
                     end
                 end
