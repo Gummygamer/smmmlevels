@@ -149,7 +149,27 @@ class CourseClass:
 
         # Success return value
         return True
-
+    
+    def toAIString(self):
+        aiString = ""
+        
+        #level grid loop
+        for i in range(1,240):
+            for j in range(1,27):
+                present = False
+                for spr in self.sprites:
+                    if (spr.objx == i) and (spr.objy == j):
+                        aiString += spr.toAIchar()
+                        present = True
+                    end
+                end
+                if (present == False):
+                    aiString += " "
+                end
+            end
+        end
+        
+        return aiString
 
     def save(self):
         """
