@@ -26,26 +26,7 @@ class SpriteItem:
         self.costumeID = costumeid
         self.costumeID_sub = subcostumeid
 
-        self.font = NumberFont
-        self.listitem = None
-        self.ChangingPos = False
-
-
-        try:
-            sname = Sprites[type_].name
-            self.name = sname
-        except:
-            self.name = 'UNKNOWN'
-
         self.InitializeSprite()
-
-        self.setFlag(self.ItemIsMovable, not SpritesFrozen)
-        self.setFlag(self.ItemIsSelectable, not SpritesFrozen)
-
-        global DirtyOverride
-        DirtyOverride += 1
-        self.resetPos()
-        DirtyOverride -= 1
 
     def SetType(self, type):
         """
@@ -259,23 +240,6 @@ class CourseClass:
         cdt[0xB] = hash & 0xFF
 
         return bytes(cdt)
-
-
-    # Python hax: automatically notify SLib whenever the style or theme changes!
-    @property
-    def style(self):
-        return self._style
-    @style.setter
-    def style(self, value):
-        SLib.Style = value
-        self._style = value
-    @property
-    def theme(self):
-        return self._theme
-    @theme.setter
-    def theme(self, value):
-        SLib.Theme = value
-        self._theme = value
 
 
     # The following insanely long constant was written by hand by RoadrunnerWMC.
