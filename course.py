@@ -58,7 +58,7 @@ class SpriteItem:
         
         return chr(self.type + 32)
         
-class CourseClass:
+class Course:
     """
     Class for a course from Super Mario Maker
     """
