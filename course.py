@@ -72,7 +72,7 @@ class Course:
         self.sprStruct = struct.Struct('>IIhbb4s4s4sbbhhbb')
         self.effectStruct = struct.Struct('>5bxxx')
 
-    def load(self, data, progress=None):
+    def load(self, data):
         """
         Loads a Super Mario Maker course from bytes data.
         """
