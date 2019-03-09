@@ -70,7 +70,6 @@ class Course:
         """
         Initializes the course with default settings
         """
-        super().__init__()
 
         self.headerStruct = struct.Struct('>QI4xH6BQB7x66s2s4BHBBI96sII12xI')
         self.sprStruct = struct.Struct('>IIhbb4s4s4sbbhhbb')
