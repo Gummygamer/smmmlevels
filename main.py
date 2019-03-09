@@ -1,3 +1,4 @@
+#seems to be imported the wrong way
 import course
 
 levelFile = open("level.cdt","r")
