@@ -1,3 +1,7 @@
+DEFAULT_SPRITEDATA = b'\x06\0\x08@\0\0\0\0'
+DEFAULT_SUBSPRITEDATA = b'\x06\0\x08@'
+DEFAULT_EFFECT = b'\xFF\xFF\0\xFF\xFF\0\0\0'
+
 class SpriteItem:
 
     # Default argument values are the ones the game uses
