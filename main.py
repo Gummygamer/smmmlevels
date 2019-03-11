@@ -3,6 +3,7 @@ import course
 levelFile = open("level.cdt","r")
 
 level = course.Course()
-level.load(levelFile)
+#gives codec error
+level.load(levelFile.read())
 
 print(level.toAIString())
