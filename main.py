@@ -1,9 +1,8 @@
 import course
 
-levelFile = open("level.cdt","r")
+levelFile = open("level.cdt","rb")
 
 level = course.Course()
-#gives codec error
 level.load(levelFile.read())
 
 print(level.toAIString())
