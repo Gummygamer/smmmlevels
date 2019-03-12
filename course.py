@@ -4,6 +4,20 @@ DEFAULT_EFFECT = b'\xFF\xFF\0\xFF\xFF\0\0\0'
 
 import struct
 
+class Effect:
+    """
+    An effect you can place in your level.
+    """
+    def __init__(self, unk00, unk01, unk02, unk03, unk04):
+        """
+        Initializes the effect with the parameters given
+        """
+        self.unk00 = unk00
+        self.unk01 = unk01
+        self.unk02 = unk02
+        self.unk03 = unk03
+        self.unk04 = unk04
+
 class SpriteItem:
 
     # Default argument values are the ones the game uses
