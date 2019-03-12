@@ -166,13 +166,8 @@ class Course:
                     if (spr.objx == i) and (spr.objy == j):
                         aiString += spr.toAIChar()
                         present = True
-                    end
-                end
                 if (present == False):
                     aiString += " "
-                end
-            end
-        end
         
         return aiString
 
