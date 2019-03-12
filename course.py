@@ -159,11 +159,12 @@ class Course:
         aiString = ""
         
         #level grid loop
+        #could be optimized
         for i in range(1,240):
             for j in range(1,27):
                 present = False
                 for spr in self.sprites:
-                    if (spr.objx == i) and (spr.objy == j):
+                    if (spr.objx / 8 == i) and (spr.objy / 8 == j):
                         aiString += spr.toAIChar()
                         present = True
                 if (present == False):
