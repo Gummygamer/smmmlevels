@@ -8,3 +8,5 @@ A neural network based program to generate levels to Super Mario Maker - WIP
 # metamaker     
 https://github.com/RoadrunnerWMC/Metamaker     
 <img width="450" alt="supermario" src="https://user-images.githubusercontent.com/289994/53910669-81549c00-40a8-11e9-91dc-f4d8e0960dac.png">
+
+In order to generate training data, just run massconvert.sh with bash into a directory full of cdt files
