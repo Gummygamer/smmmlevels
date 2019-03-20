@@ -1,6 +1,7 @@
 import course
+import sys
 
-levelFile = open("level.cdt","rb")
+levelFile = open(sys.argv[1],"rb")
 
 level = course.Course()
 level.load(levelFile.read())
