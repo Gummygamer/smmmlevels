@@ -196,9 +196,9 @@ class Course:
                 s.objx = (pos / 27) * 8 
                 s.objy = (pos % 27) * 8
                 s.type = ord(c) - 32
-                spritecount++
+                spritecount += 1
                 self.sprites.append(s)
-            pos++
+            pos += 1
         
 
     def save(self):
