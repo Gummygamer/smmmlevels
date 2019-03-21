@@ -3,6 +3,7 @@ DEFAULT_SUBSPRITEDATA = b'\x06\0\x08@'
 DEFAULT_EFFECT = b'\xFF\xFF\0\xFF\xFF\0\0\0'
 
 import struct
+import datetime
 
 class Effect:
     """
@@ -171,6 +172,19 @@ class Course:
                     aiString += " "
         
         return aiString
+    
+    def fromAIString(self, lvlstr):
+        
+        moment = datetime.datetime.now()
+        
+        self.creationYear = moment.year
+        self.creationMonth = moment.month
+        self.creationDay = moment.day
+        self.creationHour = moment.hour
+        self.creationMinute = moment.minute
+        
+        #unfinished
+        
 
     def save(self):
         """
