@@ -4,6 +4,8 @@ DEFAULT_EFFECT = b'\xFF\xFF\0\xFF\xFF\0\0\0'
 
 import struct
 import datetime
+import math
+import binascii
 
 class Effect:
     """
@@ -187,18 +189,18 @@ class Course:
         
         self.sprites = []
         
-        spritecount = 0
         pos = 0
         
         for c in lvlstr:
             if ord(c) != 32:
                 s = SpriteItem()
-                s.objx = (pos / 27) * 8 
+                s.objx = math.floor((pos / 27)) * 8 
                 s.objy = (pos % 27) * 8
-                s.type = ord(c) - 32
-                s.costumeID_sub = -1
-                spritecount += 1
-                self.sprites.append(s)
+                s.type = max(ord(c) - 32, 0)
+                print(s.type)
+                if s.type > 0:
+                    print("a")
+                    self.sprites.append(s)
             pos += 1
         
 
@@ -274,6 +276,7 @@ class Course:
                 spr.costumeID,
                 spr.costumeID_sub,
                 )
+            print("ok")
 
         sprdata = sprdata.ljust(0x14500, b'\0')
 
@@ -366,5 +369,4 @@ class Course:
             # Update stuff
             this.UpdateDynamicSizing()
             this.UpdateListItem()
-
 
