@@ -6,7 +6,7 @@ A neural network based program to generate levels to Super Mario Maker - WIP
 
 1 - In order to generate training data, just run massconvert.sh with bash into a directory full of cdt files.
 
-2 - feed it to a text generation machine learning model
+2 - feed the results as training data to a text generation machine learning model
 
 3 - WIP - convert the result back to a level filling the necessary values
 
