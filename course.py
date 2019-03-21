@@ -183,7 +183,22 @@ class Course:
         self.creationHour = moment.hour
         self.creationMinute = moment.minute
         
-        #unfinished
+        self.courseName = "no human labor"
+        
+        self.sprites = []
+        
+        spritecount = 0
+        pos = 0
+        
+        for c in lvlstr:
+            if ord(c) != 32:
+                s = SpriteItem()
+                s.objx = (pos / 27) * 8 
+                s.objy = (pos % 27) * 8
+                s.type = ord(c) - 32
+                spritecount++
+                self.sprites.append(s)
+            pos++
         
 
     def save(self):
