@@ -196,6 +196,7 @@ class Course:
                 s.objx = (pos / 27) * 8 
                 s.objy = (pos % 27) * 8
                 s.type = ord(c) - 32
+                s.costumeID_sub = -1
                 spritecount += 1
                 self.sprites.append(s)
             pos += 1
