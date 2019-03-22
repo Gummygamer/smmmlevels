@@ -167,7 +167,7 @@ class Course:
             for j in range(0,26):
                 present = False
                 for spr in self.sprites:
-                    if (spr.objx / 80 == i) and (spr.objy / 80 == j):
+                    if (math.floor(spr.objx / 80) == i) and (math.floor(spr.objy / 80) == j):
                         aiString += spr.toAIChar()
                         present = True
                 if (present == False):
