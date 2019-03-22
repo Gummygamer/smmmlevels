@@ -163,11 +163,11 @@ class Course:
         
         #level grid loop
         #could be optimized
-        for i in range(1,240):
-            for j in range(1,27):
+        for i in range(0,239):
+            for j in range(0,26):
                 present = False
                 for spr in self.sprites:
-                    if (spr.objx / 8 == i) and (spr.objy / 8 == j):
+                    if (spr.objx / 80 == i) and (spr.objy / 80 == j):
                         aiString += spr.toAIChar()
                         present = True
                 if (present == False):
@@ -194,8 +194,8 @@ class Course:
         for c in lvlstr:
             if ord(c) != 32:
                 s = SpriteItem()
-                s.objx = math.floor((pos / 27)) * 8 
-                s.objy = (pos % 27) * 8
+                s.objx = math.floor((pos / 27)) * 80 
+                s.objy = (pos % 27) * 80
                 s.type = max(ord(c) - 32, 0)
                 print(s.type)
                 if s.type > 0:
