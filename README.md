@@ -8,7 +8,7 @@ A neural network based program to generate levels to Super Mario Maker - WIP
 
 2 - feed the results as training data to a text generation machine learning model
 
-3 - WIP - convert the result back to a level filling the necessary values
+3 - convert the result back to a level filling the necessary values
 
 
 # metamaker     
