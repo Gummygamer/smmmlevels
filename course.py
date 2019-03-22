@@ -167,7 +167,7 @@ class Course:
             for j in range(0,26):
                 present = False
                 for spr in self.sprites:
-                    if (math.floor(spr.objx / 80) == i) and (math.floor(spr.objy / 80) == j):
+                    if (math.floor(spr.objx / 8) == i) and (math.floor(spr.objy / 8) == j):
                         aiString += spr.toAIChar()
                         present = True
                 if (present == False):
@@ -194,8 +194,8 @@ class Course:
         for c in lvlstr:
             if ord(c) != 32:
                 s = SpriteItem()
-                s.objx = math.floor((pos / 27)) * 80 
-                s.objy = (pos % 27) * 80
+                s.objx = math.floor((pos / 27)) * 8 
+                s.objy = (pos % 27) * 8
                 s.type = max(ord(c) - 32, 0)
                 print(s.type)
                 if s.type > 0:
