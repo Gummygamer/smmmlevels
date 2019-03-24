@@ -7,6 +7,7 @@ import datetime
 import math
 import binascii
 import random
+import copy
 
 class Effect:
     """
@@ -188,6 +189,12 @@ class Course:
         
         self.courseName = "no human labor"
         
+        basefloor = SpriteItem()
+        
+        for spr in self.sprites:
+            if spr.toAIChar() == '\'':
+                basefloor = copy.copy(spr)
+        
         self.sprites = []
         
         pos = 0
@@ -195,10 +202,13 @@ class Course:
         for c in lvlstr:
             if ord(c) != 32:
                 s = SpriteItem()
+                if c == '\'':
+                    s = copy.copy(basefloor)
+                else:
+                    s.width = random.randint(1,4)
+                    s.height = random.randint(1,4)
                 s.objx = math.floor((pos / 27)) * 16
                 s.objy = (pos % 27) * 16
-                s.width = random.randint(1,4)
-                s.height = random.randint(1,4)
                 s.type = max(ord(c) - 32, 0)
                 print(s.type)
                 if s.type > 0:
