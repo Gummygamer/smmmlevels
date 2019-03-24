@@ -6,6 +6,7 @@ import struct
 import datetime
 import math
 import binascii
+import random
 
 class Effect:
     """
