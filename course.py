@@ -196,6 +196,8 @@ class Course:
                 s = SpriteItem()
                 s.objx = math.floor((pos / 27)) * 16
                 s.objy = (pos % 27) * 16
+                s.width = random.randint(1,4)
+                s.height = random.randint(1,4)
                 s.type = max(ord(c) - 32, 0)
                 print(s.type)
                 if s.type > 0:
