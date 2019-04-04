@@ -205,8 +205,8 @@ class Course:
                 if c == '\'':
                     s = copy.copy(basefloor)
                 else:
-                    s.width = random.randint(1,4)
-                    s.height = random.randint(1,4)
+                    s.width = random.randint(1,6)
+                    s.height = random.randint(1,6)
                 s.objx = math.floor((pos / 27)) * 16
                 s.objy = (pos % 27) * 16
                 s.type = max(ord(c) - 32, 0)
