@@ -76,6 +76,14 @@ training_model.fit_generator(
 )
 
 try:
+    os.mkdir(os.getcwd()+'/predicted/')
+except OSError:
+    print ("Creation of the directory %s failed" % os.getcwd()+'/predicted/')
+else:
+    print ("Successfully created the directory %s " % os.getcwd()+'/predicted/')
+
+
+try:
     os.mkdir(os.getcwd()+'/predicted/'+str(seq_len)+"_"+str(batch_size)+'_'+str(steps_per_epoch)+'_'+str(epochs))
 except OSError:  
     print ("Creation of the directory %s failed" % os.getcwd()+'/predicted/'+str(seq_len)+"_"+str(batch_size)+'_'+str(steps_per_epoch)+'_'+str(epochs))
