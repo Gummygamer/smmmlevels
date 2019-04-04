@@ -210,9 +210,9 @@ class Course:
                 s.objx = math.floor((pos / 27)) * 16
                 s.objy = (pos % 27) * 16
                 s.type = max(ord(c) - 32, 0)
-                print(s.type)
+                #print(s.type)
                 if s.type > 0:
-                    print("a")
+                    #print("a")
                     self.sprites.append(s)
             pos += 1
         
@@ -289,7 +289,7 @@ class Course:
                 spr.costumeID,
                 spr.costumeID_sub,
                 )
-            print("ok")
+            #print("ok")
 
         sprdata = sprdata.ljust(0x14500, b'\0')
 
